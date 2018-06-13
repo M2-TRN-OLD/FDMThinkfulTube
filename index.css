@@ -1,0 +1,59 @@
+* {
+    box-sizing: border-box;
+  }
+  
+  #wrapper {
+    text-align: left;    /* Reset alignment to compensate for 'text-align:center': */
+    width: 500px;        /* Specify the width of the element. This should be the same
+                            as 'body min-width': */
+    margin-left: auto;   /* Set left and right margins to auto, thus centering the 
+                            element in the containing (body) tag: */
+    margin-right: auto;
+  }
+
+  body {
+    font-family: 'Cormorant Garamond', serif;
+    min-width: 500px;
+    text-align:center;
+  }
+  
+  header {
+    background: linear-gradient(to bottom right,#b6c64c, #8d9329); 
+    color: black;
+    height: 80px;
+    margin:0;
+    padding: 0;
+    width:100%;
+    left: 0px;
+    position: fixed;
+    text-align: center;
+  }
+  
+  h1 {
+    font-size: 36px;
+    text-shadow: 2px 2px 8px gray;
+  }
+  
+  h2 {
+    font-size: 20px;
+    text-shadow: 2px 2px 8px gray;
+    color:black;
+  }
+  
+  h3 {
+    font-size: 20px;
+  }
+  
+  p {
+    font-size: 16px;
+  }
+  
+ form {
+    padding-top: 150px;
+    text-align:center;
+  }
+  
+  
+  
+  
+  
