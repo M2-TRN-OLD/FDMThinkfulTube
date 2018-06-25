@@ -1,47 +1,111 @@
+// Single state object
+var state = {
+	userSelectedSearchItem: ""
+};
 
-const YOUTUBE_SEARCH_URL = 'https://www.googleapis.com/youtube/v3/search';
-
-
-function getDataFromApi(searchTerm, callback) {
-    console.log('made it to getdatafromapi');
-  const query = {
-    q: `${searchTerm} in:name`,
-    per_page: 5
-  }
-  $.getJSON(YOUTUBE_SEARCH_URL, query, callback);
+function openModal() {
+  document.getElementById('myModal').style.display = "block";
 }
 
-function renderResult(result) {
+function closeModal() {
+  document.getElementById('myModal').style.display = "none";
+}
+
+var slideIndex = 1;
+/*showSlides(slideIndex); */
+
+function plusSlides(n) {
+  showSlides(slideIndex += n);
+}
+
+function currentSlide(n) {
+  showSlides(slideIndex = n);
+}
+
+function showSlides(n) {
+  var i;
+  var slides = document.getElementsByClassName("mySlides");
+  var dots = document.getElementsByClassName("demo");
+  var captionText = document.getElementById("caption");
+  if (n > slides.length) {slideIndex = 1}
+  if (n < 1) {slideIndex = slides.length}
+  for (i = 0; i < slides.length; i++) {
+      slides[i].style.display = "none";
+  }
+  for (i = 0; i < dots.length; i++) {
+      dots[i].className = dots[i].className.replace(" active", "");
+  }
+  slides[slideIndex-1].style.display = "block";
+  dots[slideIndex-1].className += " active";
+ captionText.innerHTML = dots[slideIndex-1].alt;
+}
+
+function renderVid(vidforModal) {
+  console.log(`made it to renderModal`);
+  
   return `
-    <div>
-      <h2>
-      <a class="js-result-name" href="${result.html_url}" target="_blank">${result.name}</a> by <a class="js-user-name" href="${result.owner.html_url}" target="_blank">${result.owner.login}</a></h2>
-      <p>Number of watchers: <span class="js-watchers-count">${result.watchers_count}</span></p>
-      <p>Number of open issues: <span class="js-issues-count">${result.open_issues}</span></p>
+    <div class="mySlides">
+    <iframe width="420" height="345" src="https://www.youtube.com/embed/${vidforModal.id.videoId}?controls=1"" frameborder="0" allow="autoplay; encrypted-media" allowfullscreen></iframe>
     </div>
   `;
 }
 
+function renderTitleThumbDesc(titleThumbDesc) {
+  return `
+    <div class="col-3">
+      
+      <h3><span class="js-result-name">
+      <a href="${titleThumbDesc.snippet.title}" style="width:100%" target="_blank">${titleThumbDesc.snippet.title}</a>
+      </span></h3>
+      <span class="js-image"><p>
+      <img class="hover-shadow cursor" data-videoid="${titleThumbDesc.id.videoId}" src="${titleThumbDesc.snippet.thumbnails.medium.url}" style="width:100%" onclick="openModal();currentSlide(1)" ></p>
+      </span>
+      <span class="js-desc">
+      <p>${titleThumbDesc.snippet.description}</p>
+      </span>
+     
+    </div>
+  `;
+}
+
+const YOUTUBE_SEARCH_URL = 'https://www.googleapis.com/youtube/v3/search';
+
+function getDataFromApi(callback) {
+  
+  const query = {
+    q: `${userSelectedSearchItem} in:name`,
+    key: `AIzaSyDoLr1m73oBf7SHHiLQMEXg_8nhHUBWLYM`,
+    part: 'snippet',
+    per_page: 'results',
+    videoID:'id'
+  }
+ $.getJSON(YOUTUBE_SEARCH_URL, query, callback);
+}
+
 function displayYouTubeSearchData(data) {
-  const results = data.items.map((item, index) => renderResult(item));
-  $('.js-search-results').html(results);
+  console.log(data);
+  const titleThumbDesc = data.items.map((item, index) => renderTitleThumbDesc(item));
+  const vidforModal = data.items.map((item, index) => renderVid(item));
+  $('#js-search-title').html(`<h2 style="text-align:center">The following are the Thinkful Tube results for :  ${userSelectedSearchItem}</h2>`);
+  $('.js-search-results').html(titleThumbDesc);
+  $('.js-modal-content').html(vidforModal);
+  
 }
 
 function watchSubmit() {
-    console.log('made it to watchSubmit');
   $('.js-search-form').submit(event => {
     event.preventDefault();
     const queryTarget = $(event.currentTarget).find('.js-query');
-    console.log('queryTarget is ' + queryTarget);
-    const query = queryTarget.val();
-    console.log('query val is ' + query);
+    userSelectedSearchItem  = queryTarget.val();
     // clear out the input
     queryTarget.val("");
-    getDataFromApi(query, displayYouTubeSearchData);
+    console.log('after queryTarget');
+    getDataFromApi(displayYouTubeSearchData);
+
+   
   });
 }
 
 
-$(document).ready(function() {
-   watchSubmit();
-});
+watchSubmit();
+

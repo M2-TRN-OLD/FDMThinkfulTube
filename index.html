@@ -1,52 +1,44 @@
 <!DOCTYPE html>
-<html lang="en">
+<html>
+  <head>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta charset="UTF-8">
+    <meta name="author" content="Missy Maloney">
+    <meta name="description" content="Thinkful Tube for Thinkful">
+    <meta name="keywords" content="YouTube, Thinkful">
+    <title>MissyTube</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/normalize/4.2.0/normalize.min.css">
+    <link href="https://fonts.googleapis.com/css?family=Raleway" rel="stylesheet">
 
-<head>
-  <meta charset="UTF-8">
-  <title>FDM Thinkful Tube</title>
-  <meta name="author" content="Missy Maloney">
-  <meta name="description" content="Thinkful Tube for Thinkful">
-  <meta name="keywords" content="YouTube, Thinkful">
-
-  <!-- Responsivle viewport tag, tells small screens that it's responsive-->
-  <meta name="viewport" content="width=device-width, initial-scale=1">
-
-  <!-- Normalize.css, a cross-browser reset file-->
-  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/normalize/4.2.0/normalize.min.css">
-  
-  <!-- Google Font-->
-  <link href="https://fonts.googleapis.com/css?family=Cormorant+Garamond" rel="stylesheet">
-  
-  <!-- Stylesheets-->
-  <link rel="stylesheet" href="index.css">
-  <link rel="stylesheet" href="responsive.css">
+    <link rel='stylesheet' href='index.css'>
+    <link rel='stylesheet' href='responsive.css'>
+    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.1.0/css/all.css" integrity="sha384-lKuwvrZot6UHsBSfcMvOkWwlCMgc0TaWr+30HWe3a4ltaBwTZhyTEggF5tJv8tbt" crossorigin="anonymous">
 </head>
 <body>
-  <div id="wrapper">
+  
     <header role="banner">
-      <div class="row">
-        <h1 class="title">Search for Videos on Thinkful Tube</h1>
+      <div class="headerInfo">
+        <span id="missyLogo"><h1><i class="fas fa-kiwi-bird"></i>MissyTube</h1></span>
+        <span id="blurb"><h2>Search Here for Videos on MissyTube</h2></span>
       </div>
+      <form class="js-search-form">
+        <label for="query"></label>
+        <input type="text" class="js-query" placeholder="Search.."><button class="button" type="submit"><h3>Search</h3></button>
+      </form>
     </header>
-
+  <div class="row">
     <main role="main">
-      <div class="row">
-        <form action="#" class="js-search-form">
-          <label for="query"></label>
-          <input type="text" class="js-query">
-          <button type="submit">Search</button>
-        </form>
-        <h2>Results</h2>
-          <div class="js-search-results">
-          </div>
+      <div id="js-search-title"></div>
+      <div class="js-search-results"></div>
+      <div id="myModal" class="col-12 modal">
+        <span class="close cursor" onclick="closeModal()">&times;</span>
+        <span id="modalLogo"><h1><i class="fas fa-kiwi-bird"></i>  MissyTube </h1></span>
+        <div class="js-modal-content">
+        </div>
+      </div>
     </main>
-
-    <footer role="feedback">
-      <div class="row">
-    </footer>
-     
-    </div>
-    <script src="https://code.jquery.com/jquery-3.1.0.min.js"></script>
-    <script src="index.js"></script>      
+  </div>
+<script src="https://code.jquery.com/jquery-3.1.0.min.js"></script>
+<script src='index.js'>/</script>   
 </body>
 </html>

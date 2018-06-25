@@ -1,59 +1,194 @@
-* {
-    box-sizing: border-box;
-  }
-  
-  #wrapper {
-    text-align: left;    /* Reset alignment to compensate for 'text-align:center': */
-    width: 500px;        /* Specify the width of the element. This should be the same
-                            as 'body min-width': */
-    margin-left: auto;   /* Set left and right margins to auto, thus centering the 
-                            element in the containing (body) tag: */
-    margin-right: auto;
-  }
 
-  body {
-    font-family: 'Cormorant Garamond', serif;
-    min-width: 500px;
-    text-align:center;
-  }
-  
-  header {
-    background: linear-gradient(to bottom right,#b6c64c, #8d9329); 
-    color: black;
-    height: 80px;
-    margin:0;
-    padding: 0;
-    width:100%;
-    left: 0px;
-    position: fixed;
-    text-align: center;
-  }
-  
-  h1 {
-    font-size: 36px;
-    text-shadow: 2px 2px 8px gray;
-  }
-  
-  h2 {
-    font-size: 20px;
-    text-shadow: 2px 2px 8px gray;
-    color:black;
-  }
-  
-  h3 {
-    font-size: 20px;
-  }
-  
-  p {
-    font-size: 16px;
-  }
-  
- form {
-    padding-top: 150px;
-    text-align:center;
-  }
-  
-  
-  
-  
-  
+body {
+  font-family: 'Raleway', sans-serif;
+  margin: 0;
+}
+
+h1 {
+  font-size: 130%;
+}
+
+h2 {
+  font-size: 100%;
+}
+
+h3 {
+  font-size: 80%;
+}
+p {
+  font-size: 70%;
+}
+
+header {
+  background-color: lightgrey;
+  padding: 10px;
+}
+
+.resultItem {
+  border: 1px solid black;
+}
+
+i {
+  padding: 3px;
+}
+
+#js-search-title {
+  color: red;
+}
+
+#missyLogo {
+  color:red;
+}
+
+#blurb {
+
+  margin: auto;
+ 
+}
+
+input[type=text] {
+  width: 100%;
+  border: 2px solid #ccc;
+  border-radius: 4px;
+  font-size: 16px;
+  background-color:white;
+  background-image: url('images/search-512.png');
+  background-size: 28px;
+  background-position: 10px 10px; 
+  background-repeat: no-repeat;
+  padding: 10px 15px 12px 40px;
+}
+
+.button {
+  background-color: lightblue; 
+  border: none;
+  color: white;
+  padding: 6px 20px;
+  text-align: center;
+  text-decoration: none;
+  display: inline-block;
+  margin: 4px 2px;
+  cursor: pointer;
+  -webkit-transition-duration: 0.4s; /* Safari */
+  transition-duration: 0.4s;
+  box-shadow: 0 8px 16px 0 rgba(0,0,0,0.2), 0 6px 20px 0 rgba(0,0,0,0.19);
+}
+
+.js-search-form {
+  align:center;
+}
+.row > .column {
+  padding: 0 8px;
+} 
+
+.row:after {
+  content: "";
+  display: table;
+  clear: both;
+}
+
+.column {
+  float: left;
+  width: 25%;
+}
+
+#myModal {
+  background:lightblue;
+
+}
+/* The Modal (background) */
+.modal {
+  display: none;
+  position: fixed;
+  z-index: 1;
+  padding-top: 100px;
+  left: 0;
+  top: 0;
+  width: 100%;
+  height: 100%;
+  overflow: auto;
+  background-color: black;
+}
+
+/* Modal Content */
+.js-modal-content {
+  position: relative;
+  background-color: #fefefe;
+  margin: auto;
+  padding: 0;
+  width: 90%;
+  max-width: 1200px;
+  border: 5px red;
+  background: lightblue;
+}
+
+/* The Close Button */
+.close {
+  color: white;
+  position: absolute;
+  top: 10px;
+  right: 25px;
+  font-size: 35px;
+  font-weight: bold;
+}
+
+#modalLogo {
+  color:red;
+  float:left;
+  top: 10px;
+  position: absolute;
+}
+
+
+.close:hover,
+.close:focus {
+  color: #999;
+  text-decoration: none;
+  cursor: pointer;
+}
+
+.mySlides {
+  display: none;
+  margin: auto;
+}
+
+iframe {
+  margin: auto;
+  display: block;
+ 
+}
+
+.cursor {
+  cursor: pointer;
+}
+
+
+
+
+img {
+  margin-bottom: -4px;
+}
+
+.caption-container {
+  text-align: center;
+  background-color: black;
+  padding: 2px 16px;
+  color: white;
+}
+
+.demo {
+  opacity: 0.6;
+}
+
+.active,
+.demo:hover {
+  opacity: 1;
+}
+
+img.hover-shadow {
+  transition: 0.3s;
+}
+
+.hover-shadow:hover {
+  box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
+}
