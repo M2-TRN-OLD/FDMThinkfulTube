@@ -22,10 +22,16 @@ p {
 header {
   background-color: lightgrey;
   padding: 10px;
+  top:0;
+  width: 100%;
 }
 
-.resultItem {
-  border: 1px solid black;
+.js-result-name {
+  height: 40px;
+}
+
+.js-desc {
+  height:100px;
 }
 
 i {
@@ -41,7 +47,6 @@ i {
 }
 
 #blurb {
-
   margin: auto;
  
 }
@@ -69,7 +74,7 @@ input[type=text] {
   display: inline-block;
   margin: 4px 2px;
   cursor: pointer;
-  -webkit-transition-duration: 0.4s; /* Safari */
+  -webkit-transition-duration: 0.4s; 
   transition-duration: 0.4s;
   box-shadow: 0 8px 16px 0 rgba(0,0,0,0.2), 0 6px 20px 0 rgba(0,0,0,0.19);
 }
@@ -91,6 +96,8 @@ input[type=text] {
   float: left;
   width: 25%;
 }
+
+
 
 #myModal {
   background:lightblue;
@@ -162,9 +169,6 @@ iframe {
   cursor: pointer;
 }
 
-
-
-
 img {
   margin-bottom: -4px;
 }
@@ -192,3 +196,4 @@ img.hover-shadow {
 .hover-shadow:hover {
   box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
 }
+
