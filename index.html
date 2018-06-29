@@ -16,38 +16,44 @@
 </head>
 <body>
   
-    <header role="banner">
-      <div class="headerInfo">
+  <header role="banner">
+    <div class="row">
+      <div class="col-6">
         <span id="missyLogo"><h1><i class="fas fa-kiwi-bird"></i>MissyTube</h1></span>
         <span id="blurb"><h2>Search Here for Videos on MissyTube</h2></span>
+      
+        <form class="js-search-form">
+          <label for="query"></label>
+          <input type="text" class="js-query" placeholder="Search..">
+          <button class="button hover-color" type="submit"><h3>Search</h3></button>
+        </form>
+      </div> 
+
+      <div class="col-6 lightBoxVideo">
+        <label id='lightboxLabel'></label>
+          <div id='lightboxTarget'>
+              <iframe id='lightboxVideo' src='https://www.youtube.com/embed/7SIo8oL26Ww?controls=1'></iframe>
+          </div>
       </div>
-      <form class="js-search-form">
-        <label for="query"></label>
-        <input type="text" class="js-query" placeholder="Search.."><button class="button" type="submit"><h3>Search</h3></button>
-      </form>
-    </header>
-  <div class="row">
-    <main role="main">
+    </div>
+  </header>
+  <main role="main">
+   <div class="row">
+     <div class="APIData col-12">
       <div id="js-search-title"></div>
       <div id="js-search-results" class="js-search-results">
       </div>
-
-      <!-- The Modal -->
-      <div id="myModal" class="col-12 modal">
-
-        <!-- Modal content-->
-        <span class="close cursor">&times;</span>
-        <span id="modalLogo"><h1><i class="fas fa-kiwi-bird"></i>  MissyTube </h1></span>
-        <div class="js-modal-content">hi, there!!!  This is my modal</div>
-
+   </div>
+  </main>
+  <footer role="footer">
+    <div class="row">
+      <div class="col-12">
+       <div class="js-next">
+          <button id="next" class="button hover-color" type="button"><h3>Next</h3></button>
+       </div>
       </div>
-
-    </main>
-    <footer role="footer">
-      <div class="js-next">
-        <a href="#" id="next">Next Page</a>
-      </div>
-        </footer>
+    </div>
+  </footer>
   </div>
 
 </div>
