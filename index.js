@@ -74,7 +74,6 @@ function watchSubmit() {
     userSelectedSearchTerm  = queryTarget.val();
     getAPIData(userSelectedSearchTerm);
     $('#next').show();
-
   });
 
   //get next set of data
@@ -92,18 +91,9 @@ function watchSubmit() {
             <iframe id='lightboxVideo' src='${selectedVideo}?controls=1'></iframe>
       `
     );
-    
-    $('#lightboxLabel').html('Here is the video you selected.');
-
-   
-
-    
-  
+    $('#lightboxLabel').html('The video you selected will play here.');
   });
 }
-
-
-
 
 watchSubmit();
 
